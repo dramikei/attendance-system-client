@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6860F38C233B62F70047C7A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38B233B62F70047C7A2 /* AppDelegate.swift */; };
 		6860F38E233B62F70047C7A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38D233B62F70047C7A2 /* SceneDelegate.swift */; };
-		6860F390233B62F70047C7A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38F233B62F70047C7A2 /* ViewController.swift */; };
+		6860F390233B62F70047C7A2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38F233B62F70047C7A2 /* LoginVC.swift */; };
 		6860F393233B62F70047C7A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6860F391233B62F70047C7A2 /* Main.storyboard */; };
 		6860F395233B63060047C7A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6860F394233B63060047C7A2 /* Assets.xcassets */; };
 		6860F398233B63060047C7A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6860F396233B63060047C7A2 /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		6860F388233B62F70047C7A2 /* atendance-system-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "atendance-system-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6860F38B233B62F70047C7A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6860F38D233B62F70047C7A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6860F38F233B62F70047C7A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6860F38F233B62F70047C7A2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		6860F392233B62F70047C7A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6860F394233B63060047C7A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6860F397233B63060047C7A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,10 +61,11 @@
 		6860F38A233B62F70047C7A2 /* atendance-system-client */ = {
 			isa = PBXGroup;
 			children = (
-				68BB0E8423488B4900BFAF9C /* TextFieldEffects */,
+				68BB0EB323488D6D00BFAF9C /* Model */,
+				68BB0EB223488D6700BFAF9C /* View */,
+				68BB0EB123488D5B00BFAF9C /* Controller */,
 				6860F38B233B62F70047C7A2 /* AppDelegate.swift */,
 				6860F38D233B62F70047C7A2 /* SceneDelegate.swift */,
-				6860F38F233B62F70047C7A2 /* ViewController.swift */,
 				6860F391233B62F70047C7A2 /* Main.storyboard */,
 				6860F394233B63060047C7A2 /* Assets.xcassets */,
 				6860F396233B63060047C7A2 /* LaunchScreen.storyboard */,
@@ -80,8 +81,30 @@
 				68BB0E8723488B4900BFAF9C /* HoshiTextField.swift */,
 				68BB0E8A23488B4900BFAF9C /* TextFieldEffects.swift */,
 			);
-			name = TextFieldEffects;
-			path = TextFieldEffects/TextFieldEffects;
+			path = TextFieldEffects;
+			sourceTree = "<group>";
+		};
+		68BB0EB123488D5B00BFAF9C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6860F38F233B62F70047C7A2 /* LoginVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		68BB0EB223488D6700BFAF9C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				68BB0E8423488B4900BFAF9C /* TextFieldEffects */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		68BB0EB323488D6D00BFAF9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68BB0EA423488B4900BFAF9C /* TextFieldEffects.swift in Sources */,
-				6860F390233B62F70047C7A2 /* ViewController.swift in Sources */,
+				6860F390233B62F70047C7A2 /* LoginVC.swift in Sources */,
 				6860F38C233B62F70047C7A2 /* AppDelegate.swift in Sources */,
 				6860F38E233B62F70047C7A2 /* SceneDelegate.swift in Sources */,
 				68BB0EA123488B4900BFAF9C /* HoshiTextField.swift in Sources */,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FC2FB3E8C4DD0DA7B02B4C0 /* Pods_atendance_system_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E5A252CFE2DFD1661767E /* Pods_atendance_system_client.framework */; };
 		6860F38C233B62F70047C7A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38B233B62F70047C7A2 /* AppDelegate.swift */; };
 		6860F38E233B62F70047C7A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38D233B62F70047C7A2 /* SceneDelegate.swift */; };
 		6860F390233B62F70047C7A2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38F233B62F70047C7A2 /* LoginVC.swift */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E449D3EECD55F44BF3F1178 /* Pods-atendance-system-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atendance-system-client.release.xcconfig"; path = "Target Support Files/Pods-atendance-system-client/Pods-atendance-system-client.release.xcconfig"; sourceTree = "<group>"; };
+		3144ED1AC040BC65B00C16A6 /* Pods-atendance-system-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atendance-system-client.debug.xcconfig"; path = "Target Support Files/Pods-atendance-system-client/Pods-atendance-system-client.debug.xcconfig"; sourceTree = "<group>"; };
 		6860F388233B62F70047C7A2 /* atendance-system-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "atendance-system-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6860F38B233B62F70047C7A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6860F38D233B62F70047C7A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		68DF627F2348FB86001D8778 /* AttendanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceVC.swift; sourceTree = "<group>"; };
 		68DF62812348FBA1001D8778 /* TimeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableVC.swift; sourceTree = "<group>"; };
 		68DF62832348FE86001D8778 /* TTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCell.swift; sourceTree = "<group>"; };
+		CE6E5A252CFE2DFD1661767E /* Pods_atendance_system_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_atendance_system_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,17 +48,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC2FB3E8C4DD0DA7B02B4C0 /* Pods_atendance_system_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2220729178C6364FF99CA9E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E5A252CFE2DFD1661767E /* Pods_atendance_system_client.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		48F34C000EB61AA74CAA5FF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3144ED1AC040BC65B00C16A6 /* Pods-atendance-system-client.debug.xcconfig */,
+				1E449D3EECD55F44BF3F1178 /* Pods-atendance-system-client.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6860F37F233B62F70047C7A2 = {
 			isa = PBXGroup;
 			children = (
 				6860F38A233B62F70047C7A2 /* atendance-system-client */,
 				6860F389233B62F70047C7A2 /* Products */,
+				48F34C000EB61AA74CAA5FF7 /* Pods */,
+				2220729178C6364FF99CA9E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6860F39C233B63060047C7A2 /* Build configuration list for PBXNativeTarget "atendance-system-client" */;
 			buildPhases = (
+				847527A42045A62FD9D55A05 /* [CP] Check Pods Manifest.lock */,
 				6860F384233B62F70047C7A2 /* Sources */,
 				6860F385233B62F70047C7A2 /* Frameworks */,
 				6860F386233B62F70047C7A2 /* Resources */,
+				7F7F6E09E7050598E11CED0D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,6 +211,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F7F6E09E7050598E11CED0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-atendance-system-client/Pods-atendance-system-client-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-atendance-system-client/Pods-atendance-system-client-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-atendance-system-client/Pods-atendance-system-client-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		847527A42045A62FD9D55A05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-atendance-system-client-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6860F384233B62F70047C7A2 /* Sources */ = {
@@ -340,6 +409,7 @@
 		};
 		6860F39D233B63060047C7A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3144ED1AC040BC65B00C16A6 /* Pods-atendance-system-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -359,6 +429,7 @@
 		};
 		6860F39E233B63060047C7A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E449D3EECD55F44BF3F1178 /* Pods-atendance-system-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

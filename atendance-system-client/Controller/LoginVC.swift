@@ -14,6 +14,12 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func loginPressed(_ sender: Any) {
+        //TODO: Login the user and send get request
+    }
+    
 
 
 }

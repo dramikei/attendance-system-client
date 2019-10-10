@@ -8,7 +8,7 @@
 
 import UIKit
 import Charts
-
+import LocalAuthentication
 
 class SubjectVC: UIViewController {
     
@@ -22,12 +22,16 @@ class SubjectVC: UIViewController {
     let isAttendanceOn = true
     
     var totalAttendanceDataEntries = [PieChartDataEntry]()
+    var context = LAContext()
+    
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChart()
         updateChartData()
+        context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
         if isAttendanceOn {
             markAttendanceBtn.isHidden = false
         } else {
@@ -37,9 +41,36 @@ class SubjectVC: UIViewController {
     
     
     @IBAction func attendanceBtnPressed(_ sender: Any) {
-        
+        context = LAContext()
+        context.localizedCancelTitle = "Enter secret code"
+        // First check if we have the needed hardware support.
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+
+            let reason = "Log in to your account"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason ) { success, error in
+                if success {
+
+                    // Move to the main thread because a state update triggers UI changes.
+                    DispatchQueue.main.async { [unowned self] in
+                        //Authenticated TODO: Check Wifi and Mark Attendance
+                    }
+
+                } else {
+                    print(error?.localizedDescription ?? "Failed to authenticate")
+                    print("Not enrolled/Cancelled")
+                    // Fall back to a asking for username and password.
+                    // If biometrics is not enrolled
+                }
+            }
+        } else {
+            print(error?.localizedDescription ?? "Can't evaluate policy")
+            print("Hi")
+            // Fall back to a asking for username and password.
+        }
         
     }
+    
     
     
     func setupChart() {

@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4FC2FB3E8C4DD0DA7B02B4C0 /* Pods_atendance_system_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E5A252CFE2DFD1661767E /* Pods_atendance_system_client.framework */; };
+		6828F0C7234F20A200C2FC12 /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6828F0C6234F20A200C2FC12 /* SubjectVC.swift */; };
 		6860F38C233B62F70047C7A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38B233B62F70047C7A2 /* AppDelegate.swift */; };
 		6860F38E233B62F70047C7A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38D233B62F70047C7A2 /* SceneDelegate.swift */; };
 		6860F390233B62F70047C7A2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6860F38F233B62F70047C7A2 /* LoginVC.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		1E449D3EECD55F44BF3F1178 /* Pods-atendance-system-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atendance-system-client.release.xcconfig"; path = "Target Support Files/Pods-atendance-system-client/Pods-atendance-system-client.release.xcconfig"; sourceTree = "<group>"; };
 		3144ED1AC040BC65B00C16A6 /* Pods-atendance-system-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atendance-system-client.debug.xcconfig"; path = "Target Support Files/Pods-atendance-system-client/Pods-atendance-system-client.debug.xcconfig"; sourceTree = "<group>"; };
+		6828F0C6234F20A200C2FC12 /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		6860F388233B62F70047C7A2 /* atendance-system-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "atendance-system-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6860F38B233B62F70047C7A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6860F38D233B62F70047C7A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +71,6 @@
 				3144ED1AC040BC65B00C16A6 /* Pods-atendance-system-client.debug.xcconfig */,
 				1E449D3EECD55F44BF3F1178 /* Pods-atendance-system-client.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -123,6 +124,7 @@
 				6860F38F233B62F70047C7A2 /* LoginVC.swift */,
 				68DF627F2348FB86001D8778 /* AttendanceVC.swift */,
 				68DF62812348FBA1001D8778 /* TimeTableVC.swift */,
+				6828F0C6234F20A200C2FC12 /* SubjectVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,6 +264,7 @@
 				68AF8D92234A72480050977E /* AttendanceCell.swift in Sources */,
 				68BB0EA423488B4900BFAF9C /* TextFieldEffects.swift in Sources */,
 				68DF62802348FB86001D8778 /* AttendanceVC.swift in Sources */,
+				6828F0C7234F20A200C2FC12 /* SubjectVC.swift in Sources */,
 				6860F390233B62F70047C7A2 /* LoginVC.swift in Sources */,
 				68DF62822348FBA1001D8778 /* TimeTableVC.swift in Sources */,
 				6860F38C233B62F70047C7A2 /* AppDelegate.swift in Sources */,

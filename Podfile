@@ -7,5 +7,5 @@ target 'atendance-system-client' do
 
   # Pods for atendance-system-client
   pod 'Alamofire', '~> 5.0.0-rc.2'
-
+  pod 'Charts'
 end

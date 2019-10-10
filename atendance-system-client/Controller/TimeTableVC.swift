@@ -36,7 +36,6 @@ class TimeTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.subjectLabel.text = placeholderSub
         cell.timeLabel.text = placeholderTime
         cell.classLabel.text = placeholderClass
-        print(cell.frame.height)
         return cell
     }
     

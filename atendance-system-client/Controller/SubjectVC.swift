@@ -9,12 +9,15 @@
 import UIKit
 import Charts
 import LocalAuthentication
+import SystemConfiguration.CaptiveNetwork
+import CoreLocation
 
-class SubjectVC: UIViewController {
+class SubjectVC: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var pieChart: PieChartView!
     
     @IBOutlet weak var markAttendanceBtn: UIButton!
+    
     
     
     let placeholderPresent = PieChartDataEntry(value: 30.0)
@@ -23,12 +26,21 @@ class SubjectVC: UIViewController {
     
     var totalAttendanceDataEntries = [PieChartDataEntry]()
     var context = LAContext()
-    
+    let locationManager = CLLocationManager()
+    let requiredSSID = "STUD"
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status != .authorizedWhenInUse {
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
+        
         setupChart()
         updateChartData()
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
@@ -50,10 +62,11 @@ class SubjectVC: UIViewController {
             let reason = "Log in to your account"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason ) { success, error in
                 if success {
-
+                    print(self.getBSSID())
                     // Move to the main thread because a state update triggers UI changes.
                     DispatchQueue.main.async { [unowned self] in
                         //Authenticated TODO: Check Wifi and Mark Attendance
+                        
                     }
 
                 } else {
@@ -70,7 +83,17 @@ class SubjectVC: UIViewController {
         }
         
     }
-    
+    func getBSSID() -> String? {
+        var bssid: String!
+        let interfaceName = "en0"
+        if let dict = CNCopyCurrentNetworkInfo(interfaceName as CFString) as NSDictionary? {
+            let currentSSID = dict[kCNNetworkInfoKeySSID as String] as! String
+            if currentSSID == requiredSSID {
+                bssid = dict[kCNNetworkInfoKeyBSSID as String] as? String
+            }
+        }
+        return bssid
+    }
     
     
     func setupChart() {
@@ -86,7 +109,4 @@ class SubjectVC: UIViewController {
         chartDataset.colors = colors
         pieChart.data = chartData
     }
-    
-
-
 }

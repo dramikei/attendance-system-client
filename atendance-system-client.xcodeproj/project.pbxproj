@@ -36,6 +36,7 @@
 		6860F397233B63060047C7A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6860F399233B63060047C7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68AF8D91234A72480050977E /* AttendanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCell.swift; sourceTree = "<group>"; };
+		68B69C41234F589400C08BD6 /* atendance-system-client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "atendance-system-client.entitlements"; sourceTree = "<group>"; };
 		68BB0E8623488B4900BFAF9C /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
 		68BB0E8723488B4900BFAF9C /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		68BB0E8A23488B4900BFAF9C /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		6860F38A233B62F70047C7A2 /* atendance-system-client */ = {
 			isa = PBXGroup;
 			children = (
+				68B69C41234F589400C08BD6 /* atendance-system-client.entitlements */,
 				68BB0EB323488D6D00BFAF9C /* Model */,
 				68BB0EB223488D6700BFAF9C /* View */,
 				68BB0EB123488D5B00BFAF9C /* Controller */,
@@ -415,6 +417,7 @@
 			baseConfigurationReference = 3144ED1AC040BC65B00C16A6 /* Pods-atendance-system-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "atendance-system-client/atendance-system-client.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3BGLCCPGN;
 				INFOPLIST_FILE = "atendance-system-client/Info.plist";
@@ -435,6 +438,7 @@
 			baseConfigurationReference = 1E449D3EECD55F44BF3F1178 /* Pods-atendance-system-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "atendance-system-client/atendance-system-client.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3BGLCCPGN;
 				INFOPLIST_FILE = "atendance-system-client/Info.plist";

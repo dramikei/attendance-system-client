@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZIj-Mb-XBz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -64,7 +64,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-bb-WNO" customClass="HoshiTextField" customModule="atendance_system_client" customModuleProvider="target">
-                                <rect key="frame" x="16" y="462.33333333333331" width="343" height="36"/>
+                                <rect key="frame" x="16" y="463.33333333333326" width="343" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Bkg-jJ-DPr"/>
                                 </constraints>
@@ -105,6 +105,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="enrolmentField" destination="f49-Sh-axf" id="7cf-NI-W3g"/>
+                        <outlet property="passwordField" destination="AVR-bb-WNO" id="3z6-nd-wdc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ipp-vv-FZO">
@@ -193,6 +197,7 @@
                         <viewLayoutGuide key="safeArea" id="Ixd-w0-Bcx"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Attendance" id="gU8-0D-tCQ"/>
+                    <navigationItem key="navigationItem" id="Jjg-3m-W5m"/>
                     <connections>
                         <outlet property="tableView" destination="W2D-O0-at9" id="nHu-KQ-5St"/>
                     </connections>

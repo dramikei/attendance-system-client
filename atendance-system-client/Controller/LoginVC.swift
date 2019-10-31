@@ -7,9 +7,13 @@
 //
 
 import UIKit
-
+import Alamofire
 class LoginVC: UIViewController {
 
+    
+    @IBOutlet weak var enrolmentField: HoshiTextField!
+    @IBOutlet weak var passwordField: HoshiTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -17,7 +21,33 @@ class LoginVC: UIViewController {
     
     
     @IBAction func loginPressed(_ sender: Any) {
-        //TODO: Login the user and send get request
+        if enrolmentField.text != "" && passwordField.text != "" {
+            let enrolment = enrolmentField.text!
+            let password = passwordField.text!
+            let data = [
+                "enrolment": enrolment,
+                "password": password
+            ]
+            AF.request(loginURL, method: .post, parameters: data, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
+                guard let data = response.data else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    let login = try decoder.decode(Login.self, from: data)
+                    if login.result == "True" {
+                        // Transition to tab bar
+                        print("Transitioning")
+                    } else {
+                        let alertController = UIAlertController(title: "Wrong Credentials", message:
+                        "The enrolment number or the password provided is incorrect.\nPlease try again.", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                } catch let error {
+                    print(error)
+                }
+            }
+        }
+        
     }
     
 

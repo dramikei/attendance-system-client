@@ -44,7 +44,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f49-Sh-axf" customClass="HoshiTextField" customModule="atendance_system_client" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enrolment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f49-Sh-axf" customClass="HoshiTextField" customModule="atendance_system_client" customModuleProvider="target">
                                 <rect key="frame" x="16" y="411.33333333333331" width="343" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="HVX-iY-yFz"/>
@@ -69,7 +69,7 @@
                                     <constraint firstAttribute="height" constant="36" id="Bkg-jJ-DPr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                         <real key="value" value="1"/>

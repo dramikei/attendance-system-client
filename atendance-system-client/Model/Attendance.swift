@@ -11,10 +11,12 @@ struct Attendance: Codable {
     let date: String
     let subject: String
     let ispresent: String
+    let isOn: String
     
     private enum CodingKeys: String, CodingKey {
         case date = "date"
         case subject = "subject"
         case ispresent = "ispresent"
+        case isOn = "isattendanceon"
     }
 }

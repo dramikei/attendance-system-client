@@ -14,7 +14,6 @@ class AttendanceVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     
     let identifier = "attendanceIdentifier"
-    let placeholderName = "EMAT101L"
     var attendances: [TimeTable] = []
 
 

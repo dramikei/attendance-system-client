@@ -11,6 +11,7 @@ import Charts
 import LocalAuthentication
 import SystemConfiguration.CaptiveNetwork
 import CoreLocation
+import Alamofire
 
 class SubjectVC: UIViewController, CLLocationManagerDelegate {
     
@@ -21,16 +22,17 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
     
     
     
-    let placeholderPresent = PieChartDataEntry(value: 30.0)
-    let placeholderAbsent = PieChartDataEntry(value: 30.0)
-    let isAttendanceOn = true
+  
+    var isAttendanceOn = false
     
     var totalAttendanceDataEntries = [PieChartDataEntry]()
     var context = LAContext()
     let locationManager = CLLocationManager()
     let requiredSSID = "STUD"
     var subjectName = ""
-    
+    var attendances: [Attendance] = []
+    var presentCount = 0
+    var absentCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +42,46 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
             locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
         }
-        
-        
-        setupChart()
-        updateChartData()
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
-        if isAttendanceOn {
-            markAttendanceBtn.isHidden = false
-        } else {
-            markAttendanceBtn.isHidden = true
-        }
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let parameterdata = [
+            "enrolment": userEnrolment?.lowercased(),
+            "subject": subjectName.lowercased()
+        ]
+        
+        AF.request(getAttendanceURL, method: .post, parameters: parameterdata, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
+            guard let data = response.data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                let attendances = try decoder.decode(AttendanceList.self, from: data)
+                self.attendances = attendances.attendances
+                for attendance in self.attendances {
+                    print("IsPresent: \(attendance.isOn)")
+                    if attendance.ispresent == "True" || attendance.ispresent == "true" {
+                        self.presentCount += 1
+                    } else {
+                        self.absentCount += 1
+                    }
+                    if attendance.isOn == "True" || attendance.isOn == "true" {
+                        self.isAttendanceOn = true
+                    }
+                }
+                self.setupChart()
+                self.updateChartData()
+                if self.isAttendanceOn {
+                    self.markAttendanceBtn.isHidden = false
+                } else {
+                    self.markAttendanceBtn.isHidden = true
+                }
+            } catch let error {
+                print(error)
+            }
+        }
+    }
     
     @IBAction func attendanceBtnPressed(_ sender: Any) {
         context = LAContext()
@@ -67,7 +97,19 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
                     // Move to the main thread because a state update triggers UI changes.
                     DispatchQueue.main.async { [unowned self] in
                         //Authenticated TODO: Check Wifi and Mark Attendance
-                        
+                        let parameterData = [
+                            "enrolment": userEnrolment?.lowercased(),
+                            "macaddress": self.getBSSID(),
+                            "subject": self.subjectName.lowercased()
+                        ]
+                        AF.request(markAttendanceURL, method: .post, parameters: parameterData, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
+                            guard let data = response.data else { return }
+                            do {
+                                print(response)
+                            } catch let error {
+                                print(error)
+                            }
+                        }
                     }
 
                 } else {
@@ -79,7 +121,6 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
             }
         } else {
             print(error?.localizedDescription ?? "Can't evaluate policy")
-            print("Hi")
             // Fall back to a asking for username and password.
         }
         
@@ -98,9 +139,12 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
     
     
     func setupChart() {
-        placeholderAbsent.label = "Absent"
-        placeholderPresent.label = "Present"
-        totalAttendanceDataEntries = [placeholderAbsent, placeholderPresent]
+        
+        let absent = PieChartDataEntry(value: Double(absentCount))
+        let present = PieChartDataEntry(value: Double(presentCount))
+        absent.label = "Absent"
+        present.label = "Present"
+        totalAttendanceDataEntries = [absent, present]
     }
     
     func updateChartData() {

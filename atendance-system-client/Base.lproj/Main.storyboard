@@ -437,6 +437,32 @@
             </objects>
             <point key="canvasLocation" x="2596" y="500"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="Mvm-pn-g0V">
+            <objects>
+                <viewController id="Pbt-7o-ocw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="usK-2B-TFd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGK-r6-Mce">
+                                <rect key="frame" x="163.66666666666666" y="391" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fGK-r6-Mce" firstAttribute="centerY" secondItem="usK-2B-TFd" secondAttribute="centerY" id="1sJ-Ux-7mm"/>
+                            <constraint firstItem="fGK-r6-Mce" firstAttribute="centerX" secondItem="usK-2B-TFd" secondAttribute="centerX" id="666-lH-FCm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hqi-YC-gHY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="vgh-DH-ABN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pp-OL-cnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2596" y="1216"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dJi-Ya-MsT">
             <objects>
@@ -449,6 +475,7 @@
                     <connections>
                         <segue destination="DKb-aR-Rrg" kind="relationship" relationship="viewControllers" id="SX7-N3-8G0"/>
                         <segue destination="jqG-70-jm8" kind="relationship" relationship="viewControllers" id="T3w-WZ-roR"/>
+                        <segue destination="Pbt-7o-ocw" kind="relationship" relationship="viewControllers" id="7Wb-qU-ELu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KET-1C-xjL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

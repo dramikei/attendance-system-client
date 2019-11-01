@@ -440,7 +440,7 @@
         <!--Item-->
         <scene sceneID="Mvm-pn-g0V">
             <objects>
-                <viewController id="Pbt-7o-ocw" sceneMemberID="viewController">
+                <viewController id="Pbt-7o-ocw" customClass="SettingsVC" customModule="atendance_system_client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="usK-2B-TFd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,6 +448,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGK-r6-Mce">
                                 <rect key="frame" x="163.66666666666666" y="391" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="Pbt-7o-ocw" eventType="touchUpInside" id="Joz-zz-KIt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -461,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pp-OL-cnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2596" y="1216"/>
+            <point key="canvasLocation" x="2596" y="1243"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dJi-Ya-MsT">

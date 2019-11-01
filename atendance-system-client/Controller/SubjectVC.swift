@@ -36,7 +36,9 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         titleLabel.text = self.subjectName
+        setupScreen()
         let status = CLLocationManager.authorizationStatus()
         if status != .authorizedWhenInUse {
             locationManager.delegate = self
@@ -44,43 +46,6 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
         }
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let parameterdata = [
-            "enrolment": userEnrolment?.lowercased(),
-            "subject": subjectName.lowercased()
-        ]
-        
-        AF.request(getAttendanceURL, method: .post, parameters: parameterdata, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
-            guard let data = response.data else { return }
-            
-            do {
-                let decoder = JSONDecoder()
-                let attendances = try decoder.decode(AttendanceList.self, from: data)
-                self.attendances = attendances.attendances
-                for attendance in self.attendances {
-                    print("IsPresent: \(attendance.isOn)")
-                    if attendance.ispresent == "True" || attendance.ispresent == "true" {
-                        self.presentCount += 1
-                    } else {
-                        self.absentCount += 1
-                    }
-                    if attendance.isOn == "True" || attendance.isOn == "true" {
-                        self.isAttendanceOn = true
-                    }
-                }
-                self.setupChart()
-                self.updateChartData()
-                if self.isAttendanceOn {
-                    self.markAttendanceBtn.isHidden = false
-                } else {
-                    self.markAttendanceBtn.isHidden = true
-                }
-            } catch let error {
-                print(error)
-            }
-        }
     }
     
     @IBAction func attendanceBtnPressed(_ sender: Any) {
@@ -97,15 +62,18 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
                     // Move to the main thread because a state update triggers UI changes.
                     DispatchQueue.main.async { [unowned self] in
                         //Authenticated TODO: Check Wifi and Mark Attendance
+                        var mac = self.getBSSID() ?? "0:0:0:0:0:00"
+                        mac = String(mac.dropLast(3))
                         let parameterData = [
                             "enrolment": userEnrolment?.lowercased(),
-                            "macaddress": self.getBSSID(),
+                            "macaddress": mac,
                             "subject": self.subjectName.lowercased()
                         ]
                         AF.request(markAttendanceURL, method: .post, parameters: parameterData, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
                             guard let data = response.data else { return }
                             do {
                                 print(response)
+                                self.setupScreen()
                             } catch let error {
                                 print(error)
                             }
@@ -153,5 +121,44 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
         let colors = [UIColor(red:0.91, green:0.33, blue:0.22, alpha:1.0), UIColor(red:0.20, green:0.92, blue:0.75, alpha:1.0)]
         chartDataset.colors = colors
         pieChart.data = chartData
+    }
+    
+    func setupScreen() {
+        let parameterdata = [
+            "enrolment": userEnrolment?.lowercased(),
+            "subject": subjectName.lowercased()
+        ]
+        
+        AF.request(getAttendanceURL, method: .post, parameters: parameterdata, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
+            guard let data = response.data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                let attendances = try decoder.decode(AttendanceList.self, from: data)
+                self.attendances.removeAll()
+                self.attendances = attendances.attendances
+                self.presentCount = 0
+                self.absentCount = 0
+                for attendance in self.attendances {
+                    if attendance.ispresent == "True" || attendance.ispresent == "true" {
+                        self.presentCount += 1
+                    } else {
+                        self.absentCount += 1
+                    }
+                    if attendance.isOn == "True" || attendance.isOn == "true" {
+                        self.isAttendanceOn = true
+                    }
+                }
+                self.setupChart()
+                self.updateChartData()
+                if self.isAttendanceOn {
+                    self.markAttendanceBtn.isHidden = false
+                } else {
+                    self.markAttendanceBtn.isHidden = true
+                }
+            } catch let error {
+                print(error)
+            }
+        }
     }
 }

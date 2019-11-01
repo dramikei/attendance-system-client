@@ -13,4 +13,4 @@ let getAttendanceURL = "http://localhost:5000/getAttendance"
 let markAttendanceURL = "http://localhost:5000/markAttendance"
 let getTimeTableURL = "http://localhost:5000/timetable"
 
-var userEnrolment = ""
+var userEnrolment = UserDefaults.standard.string(forKey: "Enrolment")

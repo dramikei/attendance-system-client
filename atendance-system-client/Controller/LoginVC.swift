@@ -36,6 +36,13 @@ class LoginVC: UIViewController {
                     if login.result == "True" {
                         // Transition to tab bar
                         print("Transitioning")
+                        let defaults = UserDefaults.standard
+                        defaults.set(true, forKey: "isUserLoggedIn")
+                        defaults.set(enrolment, forKey: "Enrolment")
+                        defaults.synchronize()
+                        let mainvc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "mainVC")
+                        mainvc.modalPresentationStyle = .fullScreen
+                        self.present(mainvc, animated: true, completion: nil)
                     } else {
                         let alertController = UIAlertController(title: "Wrong Credentials", message:
                         "The enrolment number or the password provided is incorrect.\nPlease try again.", preferredStyle: .alert)

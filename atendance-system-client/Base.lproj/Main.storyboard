@@ -178,7 +178,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="subjectName" destination="0Qn-iC-VCG" id="2iq-iw-Zp9"/>
-                                            <segue destination="7cc-jp-MsC" kind="show" id="XMr-cg-93G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -209,9 +208,9 @@
         <!--SubjectVC-->
         <scene sceneID="BL6-r4-1UJ">
             <objects>
-                <viewController id="7cc-jp-MsC" customClass="SubjectVC" customModule="atendance_system_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubjectVC" id="7cc-jp-MsC" customClass="SubjectVC" customModule="atendance_system_client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bh3-zv-mVe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zma-8g-sBW">
@@ -304,6 +303,7 @@
                     <connections>
                         <outlet property="markAttendanceBtn" destination="8Qo-20-azn" id="Ra5-gC-KzJ"/>
                         <outlet property="pieChart" destination="bCM-pZ-s2M" id="kAg-MM-cbq"/>
+                        <outlet property="titleLabel" destination="5ft-y6-ztp" id="JrR-cK-9cC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3J-3O-OVT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -22,6 +22,7 @@ class SettingsVC: UIViewController {
         defaults.synchronize()
         let mainvc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "LoginVC")
         mainvc.modalPresentationStyle = .fullScreen
+        self.dismiss(animated: false, completion: nil)
         self.present(mainvc, animated: true, completion: nil)
     }
     

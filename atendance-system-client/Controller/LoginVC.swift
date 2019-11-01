@@ -47,6 +47,8 @@ class LoginVC: UIViewController {
                         let alertController = UIAlertController(title: "Wrong Credentials", message:
                         "The enrolment number or the password provided is incorrect.\nPlease try again.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                        //Dismissing present VC so as to avoid stacking ViewControllers in an event of multiple login and logouts
+                        self.dismiss(animated: false, completion: nil)
                         self.present(alertController, animated: true, completion: nil)
                     }
                 } catch let error {

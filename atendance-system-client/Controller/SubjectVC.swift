@@ -17,6 +17,7 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var pieChart: PieChartView!
     
     @IBOutlet weak var markAttendanceBtn: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     
@@ -28,12 +29,12 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
     var context = LAContext()
     let locationManager = CLLocationManager()
     let requiredSSID = "STUD"
-    
+    var subjectName = ""
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        titleLabel.text = self.subjectName
         let status = CLLocationManager.authorizationStatus()
         if status != .authorizedWhenInUse {
             locationManager.delegate = self

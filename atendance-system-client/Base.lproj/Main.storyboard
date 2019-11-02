@@ -195,7 +195,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ixd-w0-Bcx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Attendance" id="gU8-0D-tCQ"/>
+                    <tabBarItem key="tabBarItem" title="Attendance" image="pencil.and.ellipsis.rectangle" catalog="system" id="gU8-0D-tCQ"/>
                     <navigationItem key="navigationItem" id="Jjg-3m-W5m"/>
                     <connections>
                         <outlet property="tableView" destination="W2D-O0-at9" id="nHu-KQ-5St"/>
@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="1469.5999999999999" y="-228.32512315270938"/>
         </scene>
-        <!--SubjectVC-->
+        <!--Settings-->
         <scene sceneID="BL6-r4-1UJ">
             <objects>
-                <viewController storyboardIdentifier="SubjectVC" id="7cc-jp-MsC" customClass="SubjectVC" customModule="atendance_system_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubjectVC" title="Settings" id="7cc-jp-MsC" customClass="SubjectVC" customModule="atendance_system_client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bh3-zv-mVe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -428,7 +428,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KfB-Sh-XWj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Time Table" selectedImage="house.fill" catalog="system" id="03v-Oj-rfb"/>
+                    <tabBarItem key="tabBarItem" title="Time Table" image="house" catalog="system" selectedImage="house.fill" id="03v-Oj-rfb"/>
                     <connections>
                         <outlet property="tableView" destination="yLb-rO-cIi" id="nqH-zP-epi"/>
                     </connections>
@@ -437,7 +437,7 @@
             </objects>
             <point key="canvasLocation" x="2596" y="500"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="Mvm-pn-g0V">
             <objects>
                 <viewController id="Pbt-7o-ocw" customClass="SettingsVC" customModule="atendance_system_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -460,7 +460,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hqi-YC-gHY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="vgh-DH-ABN"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="vgh-DH-ABN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pp-OL-cnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -489,6 +489,9 @@
     <resources>
         <image name="attendance" width="225" height="225"/>
         <image name="chevron.right" catalog="system" width="46" height="64"/>
+        <image name="gear" catalog="system" width="64" height="60"/>
+        <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
     </resources>
 </document>

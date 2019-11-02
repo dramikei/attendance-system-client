@@ -58,7 +58,6 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
             let reason = "Log in to your account"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason ) { success, error in
                 if success {
-                    print(self.getBSSID())
                     // Move to the main thread because a state update triggers UI changes.
                     DispatchQueue.main.async { [unowned self] in
                         //Authenticated TODO: Check Wifi and Mark Attendance
@@ -72,6 +71,7 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
                         AF.request(markAttendanceURL, method: .post, parameters: parameterData, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
                             guard let data = response.data else { return }
                             do {
+                                print(response)
                                 let decoder = JSONDecoder()
                                 let resultData = try decoder.decode(Login.self, from: data)
                                 if resultData.result == "Success" {

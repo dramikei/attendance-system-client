@@ -72,8 +72,26 @@ class SubjectVC: UIViewController, CLLocationManagerDelegate {
                         AF.request(markAttendanceURL, method: .post, parameters: parameterData, encoder: JSONParameterEncoder.default, headers: nil, interceptor: nil).responseJSON { response in
                             guard let data = response.data else { return }
                             do {
-                                print(response)
-                                self.setupScreen()
+                                let decoder = JSONDecoder()
+                                let resultData = try decoder.decode(Login.self, from: data)
+                                if resultData.result == "Success" {
+                                    let alertController = UIAlertController(title: "Attendance Marked", message:
+                                    "Attendance was marked successfully.", preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                                    self.present(alertController, animated: true, completion: nil)
+                                    self.setupScreen()
+                                } else if resultData.result == "wrong mac-address" {
+                                    let alertController = UIAlertController(title: "Wrong Wifi!", message:
+                                    "You are not connected to the LectureHall's Wifi.\nPlease connect to the LH wifi and try again", preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                                    self.present(alertController, animated: true, completion: nil)
+                                } else {
+                                    let alertController = UIAlertController(title: "Error!", message:
+                                    "An internal server error has occurerd.\nPlease try again.", preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                                    self.present(alertController, animated: true, completion: nil)
+                                }
+                                
                             } catch let error {
                                 print(error)
                             }
